@@ -80,7 +80,7 @@ int main(){
     }
 
     double mediaT = mediaTotal(estados, TAM);
-    printf("\nMédia de transportes envolvidos em acidentes no país: %.2f\n\n", mediaT);
+    printf("\nMédia de transportes envolvidos em acidentes no país: %.2lf\n\n", mediaT);
 
     acimaMedia(estados, mediaT, TAM);
     return 0;
