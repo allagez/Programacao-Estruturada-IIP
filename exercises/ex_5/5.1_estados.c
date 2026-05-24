@@ -48,6 +48,23 @@ double percentual(struct Estado *E, int i){
     return (E[i].acidentes * 100.0)/E[i].veiculos;
 }
 
+double mediaTotal(struct Estado *E, int tam){
+    int somaTotal = 0;
+    for (int i = 0; i < tam; i += 1){
+        somaTotal += E[i].acidentes;
+    }
+    
+    return (double) somaTotal / tam;
+}
+
+    void acimaMedia(struct Estado *E, double media, int tam){
+        for(int i = 0; i < tam; i +=1){
+            if (E[i].acidentes > media){
+                printf("%s está acima da média em acidentes nacionais.\n", E[i].nome);
+            }
+        }
+    }
+
 int main(){
     struct Estado estados[TAM];
     preencherEstados(estados, TAM);
@@ -57,9 +74,14 @@ int main(){
     printf("O estado com maior número de acidentes:\n%s — %d\n", estados[maior].nome, estados[maior].acidentes);
     printf("O estado com menor número de acidentes:\n%s — %d\n", estados[menor].nome, estados[menor].acidentes);
     
-    printf("Percentual de veículos envolvidos em acidente por estado:\n");
+    printf("\nPercentual de veículos envolvidos em acidente por estado:\n");
     for (int i = 0; i < TAM; i += 1){
         printf("%s — %.2f%%\n", estados[i].nome, percentual(estados, i));
     }
+
+    double mediaT = mediaTotal(estados, TAM);
+    printf("\nMédia de transportes envolvidos em acidentes no país: %.2f\n\n", mediaT);
+
+    acimaMedia(estados, mediaT, TAM);
     return 0;
 }
