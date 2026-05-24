@@ -56,7 +56,7 @@ int buscaSequencialProduto(int codigoBusca, struct Produto *p, int tamanho){
             return i;
         }
     }
-    printf("\nProduto não encontrado!\n");
+    printf("Produto não encontrado!\n");
     return -1;
 }
 
