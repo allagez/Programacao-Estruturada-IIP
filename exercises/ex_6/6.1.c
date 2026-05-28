@@ -102,12 +102,10 @@ void buscaBinariaDesc(struct Produto *P, int qtd, char *x) {
         int meio = (inicio + fim) / 2;
         if (strcmp(P[meio].descricao, x) > 0) {
             fim = meio - 1;
-        } else if (strcmp(P[meio].descricao, x) < 0){
-            inicio = meio + 1;
         } else {
             break;
         }
-    } while (inicio <= fim);
+    } while (strcmp(P[meio].descricao,x) != 0 && inicio <= fim);
     
     if (inicio <= fim && strcmp(P[meio].descricao, x) == 0) {
         printf("A descrição está registrada!");
